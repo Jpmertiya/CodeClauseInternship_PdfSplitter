@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>PDF Splitter</title>
+	<!-- Add your CSS styles here to create a mesmerizing UI -->
+	<style>
+		/* Add your mesmerizing CSS styles here */
+		body {
+			background-color: #f5f5fa;
+			font-family: Arial, sans-serif;
+			text-align: center;
+			margin: 0;
+			padding: 0;
+		}
+
+		.container {
+			margin-top: 10px;
+			max-width: 900px;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 20px;
+			border-radius: 8px;
+
+		}
+
+		h1 {
+			color: #e5322d;
+			font-size: 72px;
+			text-transform: uppercase;
+			text-decoration: solid;
+
+			margin-bottom: 50px;
+		}
+
+		.form-group {
+			margin-top: 60px;
+			text-align: left;
+
+		}
+
+		.form-group label {
+			display: block;
+			font-weight: bold;
+		}
+
+		.custom-file-input {
+			display: none;
+
+		}
+
+		.custom-file-label {
+
+			font-size: 33px;
+			background-color: #e5322d;
+			color: #fff;
+			padding: 15px 0;
+			width: 600px;
+			height: 40px;
+			border: 2px solid black;
+			border-radius: 34px;
+			cursor: pointer;
+			margin: 10px auto;
+			display: flex;
+
+
+		}
+
+		.custom-file-label:hover {
+			background-color: #E64A2E;
+			/* Darker reddish color on hover */
+		}
+
+		.form-group button {
+			margin: 10px auto;
+			/* Center text horizontally */
+			background-color: #007BFF;
+			color: #fff;
+			border: none;
+			border-radius: 4px;
+			padding: 15px 40px;
+			/* Increase height and width */
+			cursor: pointer;
+			border: 2px solid black;
+			border-radius: 30px;
+
+			cursor: pointer;
+			margin: 10px auto;
+			/* Center text horizontally */
+			display: flex;
+			justify-content: center;
+			/* Center text horizontally */
+			align-items: center;
+			/* Center text vertically */
+		}
+
+		.form-group button:hover {
+			background-color: #0056b3;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1>PDF Splitter</h1>
+		<h2>Separate one page or a whole set for easy conversion into independent PDF files.</h2>
+		<form action="/split-pdf" method="post" enctype="multipart/form-data">
+			<div class="form-group">
+
+				<input type="file" id="pdfFile" name="pdfFile" accept=".pdf" class="custom-file-input" required>
+				<label for="pdfFile" class="custom-file-label"
+					style="display: flex; justify-content: center; align-items: center;">Select PDF</label>
+
+			</div>
+			<div class="form-group">
+				<button type="submit">Split PDF</button>
+			</div>
+		</form>
+
+
+
+		<!-- Display download links -->
+		<div th:each="link : ${downloadLinks}">
+			<a th:href="@{${link}}" th:text="${link}">Download PDF</a><br>
+		</div>
+	</div>
+</body>
+
+</html>
