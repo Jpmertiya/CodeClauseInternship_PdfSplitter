@@ -57,7 +57,6 @@
     <h1>PDF Splitter Result</h1>
     <div class="container">
         <p th:text="${message}"></p>
-        <a class="download-link" th:href="@{/download(filename=${urls[0]})}" download>Download First Split PDF</a>
         <ul>
             <li th:each="link : ${urls}" th:if="${not #strings.isEmpty(link)}">
                 <a class="download-link" th:href="@{/download(filename=${link})}" th:utext="${link}">Download PDF</a>
